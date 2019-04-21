@@ -16,4 +16,5 @@ public class Person {
     private Integer personId;
     private String personName;
     private String personPhoneNumber;
+    private String coinAcceptorID;
 }

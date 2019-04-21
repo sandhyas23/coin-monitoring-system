@@ -18,12 +18,13 @@ public class NotifyController {
     @Autowired
     PersonRepository personRepository;
 
-    @RequestMapping(path = "/register", method = RequestMethod.POST)
-    public Response handleRequest(Integer coinAcceptorId, String personName, String phoneNumber ){
+    @RequestMapping(path = "/register", method = RequestMethod.GET)
+    public Response handleRequest(String coinAcceptorId, String personName, String phoneNumber ){
 
         Person person = new Person();
         person.setPersonName(personName);
         person.setPersonPhoneNumber(phoneNumber);
+        person.setCoinAcceptorID(coinAcceptorId);
 
         personRepository.save(person);
 
