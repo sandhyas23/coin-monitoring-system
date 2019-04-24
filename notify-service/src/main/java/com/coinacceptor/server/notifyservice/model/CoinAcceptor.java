@@ -2,7 +2,6 @@ package com.coinacceptor.server.notifyservice.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -10,9 +9,9 @@ import javax.persistence.Id;
 @Data
 public class CoinAcceptor {
     @Id
-    @Column(
-            name = "coinacceptorid"
-    )
     private String coinAcceptorId;
+    private int totalCount;
+    private int quarterCount;
+    private int fivecentsCount;
 
 }

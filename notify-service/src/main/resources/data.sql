@@ -1,5 +1,6 @@
-INSERT INTO coinAcceptor (coinAcceptorId) VALUES
-  ('ID1234'),
-  ('ID6447'),
-  ('ID3221'),
-  ('ID2221');
+--INSERT INTO coinAcceptor (coin_Acceptor_Id,total_count,quarter_count,fivecents_count) VALUES
+--  ('ID1234',0,0,0),
+--  ('ID6467',0,0,0),
+--  ('ID321',0,0,0),
+--  ('ID221',0,0,0);
+SELECT * FROM coinAcceptor
