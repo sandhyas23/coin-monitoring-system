@@ -20,9 +20,9 @@ public class NotifyController {
 
     private static final Logger logger = LoggerFactory.getLogger(NotifyController.class);
     public static final String ACCOUNT_SID =
-            "ACefe3ebde6bedc5c18371e07d05e6b153";
+            "xxx";
     public static final String AUTH_TOKEN =
-            "803b291d955b98c7b6acfdcb92330902";
+            "xxx";
 
     @Autowired
     PersonRepository personRepository;
