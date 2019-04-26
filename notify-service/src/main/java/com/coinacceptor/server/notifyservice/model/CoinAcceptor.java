@@ -13,5 +13,6 @@ public class CoinAcceptor {
     private int totalCount;
     private int quarterCount;
     private int fivecentsCount;
+    private int threshold;
 
 }
