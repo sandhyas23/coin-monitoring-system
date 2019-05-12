@@ -1,4 +1,15 @@
+#include <ssl_client.h>
+#include <WiFiClientSecure.h>
+
 #include <SoftwareSerial.h>
+#include <SPI.h>
+#include <WiFi.h>
+
+
+const char* ssid = "xxx";
+const char* password = "xxx";
+
+
 const int coinpin = 2;
 const int coinpinO = 5;
 const int targetcents = 1;
@@ -34,24 +45,31 @@ bool checkResetButton() {
   }
 void setup() {
   // put your setup code here, to run once:
-
   Serial.begin(115200);
   pinMode(RESET_PIN, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(coinpin), acceptorCount, RISING);
   attachInterrupt(digitalPinToInterrupt(coinpinO), acceptorPulse, RISING);
   pulse_count = 0;
 
+  Serial.print("Connecting to ");
+Serial.print(ssid);
+WiFi.begin(ssid, password);
+WiFi.waitForConnectResult();
+Serial.print(", WiFi connected, IP address: ");
+Serial.println(WiFi.localIP());
+  
 }
 
 void loop() {
+  
   bool checkResetButton();
   tempPC = latestPulse;
   tempAc = latestAction;
   if(millis()-latestPulse >= pulseCount && pulse_count>0 || pulse_count>=2){
     if(tempAc != latestAction || tempPC != latestPulse) return;
     if(coinTypeArr[pulse_count-1]==.25){
-//        Serial.println("Quarter");
-        coinType = "Quarter";
+//        Serial.println("quarter");
+        coinType = "quarter";
         }
         else if(coinTypeArr[pulse_count-1]==.05)
         {
@@ -61,16 +79,14 @@ void loop() {
           else
           {
             Serial.println("I can't read other coins");
-            }
+          }
     Serial.println(coinType);
     pulse_count = 0;
   }
 
-  delay(5000);
+  delay(1000);
   
 }
-
-
 
 void acceptorPulse(){
       latestPulse = millis();
