@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Money tray</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/CSS/style.css">
+</head>
+<body>
+    <div class="container my-5">
+        <h2>Money Tray values</h2>
+        <table class="table table-striped table-responsive-md">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Five Cents</th>
+                <th>Quarters</th>
+                <th>Total coins</th>
+                <th>Threshold</th>
+                <th>Time Stamp</th>
+                <th>Total Amount</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="eachId : ${all}">
+                <td th:text="${eachId.coinAcceptorId}"></td>
+                <td th:text="${eachId.fivecentsCount}"></td>
+                <td th:text="${eachId.quarterCount}"></td>
+                <td th:text="${eachId.totalCount}"></td>
+                <td th:text="${eachId.threshold}"></td>
+                <td th:text="${eachId.timeStamp}"></td>
+                <td th:text="|$${eachId.totalAmount}|"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
