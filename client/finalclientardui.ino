@@ -9,8 +9,8 @@
 #include <WiFi.h>
 # define ACTIVATED LOW
 
-const char* ssid     = "BayBox";
-const char* password = "morningfishliveshineturnwas";
+const char* ssid     = "*****";
+const char* password = "******";
 
 const char* host = "10.78.128.20";
 const char* streamId   = "Jxyjr7DmxwTD5dG1D1Kv";
